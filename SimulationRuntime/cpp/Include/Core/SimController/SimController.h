@@ -22,7 +22,10 @@ public:
     virtual shared_ptr<IMixedSystem> getSystem(string modelname);
     virtual  shared_ptr<ISimObjects> getSimObjects();
     virtual void calcOneStep();
-
+    virtual void StartReduceDAE(SimSettings simsettings,string modelPath, string modelKey,bool loadMSL, bool loadPackage);
+    virtual std::vector<unsigned int> cancelTerms(label_list_type& labels,ublas::matrix<double>& Ro, shared_ptr<IMixedSystem> system,IReduceDAESettings* _settings,SimSettings simsettings, string modelKey, vector<string> output_names, double timeout);
+    virtual label_list_type perfectRanking(ublas::matrix<double>& Ro, shared_ptr<IMixedSystem> system,IReduceDAESettings* _settings, SimSettings simsettings, string modelKey, vector<string> output_names, double timeout);
+    virtual void initialize(SimSettings simsettings, string modelKey, double timeout);
 private:
     void initialize(PATH library_path, PATH modelicasystem_path);
     bool _initialized;

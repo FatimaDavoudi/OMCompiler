@@ -261,6 +261,7 @@ algorithm
   end if;
 
   // remove .exe .dll .log!
+  try
   if System.regularFileExists(fileEXE) then
     0 := System.removeFile(fileEXE);
   end if;
@@ -270,7 +271,9 @@ algorithm
   if System.regularFileExists(fileLOG) then
     0 := System.removeFile(fileLOG);
   end if;
-
+    else
+   print("Exe,log or dll files are in used, cannot be removed. \n");
+  end try;
   if Config.getRunningTestsuite() then
     System.appendFile(Config.getRunningTestsuiteFile(),
       fileEXE + "\n" + fileDLL + "\n" + fileLOG + "\n" + fileprefix + ".o\n" + fileprefix + ".libs\n" +

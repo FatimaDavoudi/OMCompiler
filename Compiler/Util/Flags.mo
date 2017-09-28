@@ -516,7 +516,8 @@ constant DebugFlag MERGE_ALGORITHM_SECTIONS = DEBUG_FLAG(170, "mergeAlgSections"
   Util.gettext("Disables coloring algorithm while sparsity detection."));
 constant DebugFlag WARN_NO_NOMINAL = DEBUG_FLAG(171, "warnNoNominal", false,
   Util.gettext("Prints the iteration variables in the initialization and simulation DAE, which do not have a nominal value."));
-
+constant DebugFlag REDUCE_DAE = DEBUG_FLAG(172, "backendReduceDAE", false,
+  Util.gettext("Prints all Reduce DAE debug information."));
 
 // This is a list of all debug flags, to keep track of which flags are used. A
 // flag can not be used unless it's in this list, and the list is checked at
@@ -694,7 +695,8 @@ constant list<DebugFlag> allDebugFlags = {
   NF_UNITCHECK,
   DISABLE_COLORING,
   MERGE_ALGORITHM_SECTIONS,
-  WARN_NO_NOMINAL
+  WARN_NO_NOMINAL,
+  REDUCE_DAE
 };
 
 public
@@ -1385,6 +1387,21 @@ constant ConfigFlag HOMOTOPY_APPROACH = CONFIG_FLAG(116, "homotopyApproach",
     })),
     Util.gettext("Sets the homotopy approach."));
 
+  constant ConfigFlag LABELED_REDUCTION = CONFIG_FLAG(117,
+  "labeledReduction", NONE(), EXTERNAL(), BOOL_FLAG(false), NONE(),
+  Util.gettext("Turns on labeling and reduce terms to do whole process of reduction."));
+
+  constant ConfigFlag DISABLE_EXTRA_LABELING = CONFIG_FLAG(118,
+  "disableExtraLabeling", NONE(), EXTERNAL(), BOOL_FLAG(false), NONE(),
+  Util.gettext("Disable adding extra label into the whole experssion with more than one term and +,- operations."));
+
+    constant ConfigFlag LOAD_MSL_MODEL = CONFIG_FLAG(119,
+  "loadMSLModel", NONE(), EXTERNAL(), BOOL_FLAG(false), NONE(),
+  Util.gettext("Used to know loadFile doesn't need to be called in cpp-runtime (for labeled model reduction)."));
+
+   constant ConfigFlag Load_PACKAGE_FILE = CONFIG_FLAG(120,
+  "loadPackageFile", NONE(), EXTERNAL(), BOOL_FLAG(false), NONE(),
+  Util.gettext("used when the outside name is different with the inside name of the packge, in cpp-runtime (for labeled model reduction)."));
 protected
 // This is a list of all configuration flags. A flag can not be used unless it's
 // in this list, and the list is checked at initialization so that all flags are
@@ -1505,7 +1522,11 @@ constant list<ConfigFlag> allConfigFlags = {
   TEARING_STRICTNESS,
   INTERACTIVE,
   ZEROMQ_FILE_SUFFIX,
-  HOMOTOPY_APPROACH
+  HOMOTOPY_APPROACH,
+  LABELED_REDUCTION,
+  DISABLE_EXTRA_LABELING,
+  LOAD_MSL_MODEL,
+  Load_PACKAGE_FILE
 };
 
 public function new

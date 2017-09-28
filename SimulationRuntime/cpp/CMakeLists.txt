@@ -147,7 +147,7 @@ SET(DgesvName ${LIBPREFIX}Dgesv) # only static version
 SET(USE_MICO OFF)
 SET(USE_KLU CACHE BOOL OFF)
 SET(USE_TRILINOS CACHE BOOL OFF)
-SET(REDUCE_DAE OFF)
+SET(REDUCE_DAE ON)
 IF(NOT FMU_TARGET OR FMU_SUNDIALS)
   SET(USE_SUNDIALS ON)
 ENDIF(NOT FMU_TARGET OR FMU_SUNDIALS)
@@ -447,7 +447,7 @@ ELSEIF(NOT FMU_TARGET)
 ENDIF(NOT(COMPILER_SUPPORTS_CXX11))
 
 IF(NOT FMU_TARGET)
-  FIND_PACKAGE(Boost REQUIRED COMPONENTS filesystem system serialization program_options)
+  FIND_PACKAGE(Boost REQUIRED COMPONENTS filesystem system serialization program_options timer)
 ELSE(NOT FMU_TARGET)
   FIND_PACKAGE(Boost COMPONENTS filesystem system serialization program_options)
 ENDIF(NOT FMU_TARGET)
@@ -850,7 +850,7 @@ endif(NOT FMU_TARGET)
 add_subdirectory(FMU)
 
 if(REDUCE_DAE)
-  #add_subdirectory(ReduceDAE/Implementation)
+  add_subdirectory(Core/ReduceDAE)
 endif()
 
 

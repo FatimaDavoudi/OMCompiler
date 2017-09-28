@@ -51,8 +51,10 @@ public:
   void load(std::string xml_file);
   virtual void setRuntimeLibrarypath(string);
   virtual string getRuntimeLibrarypath();
-  virtual void setAlarmTime(unsigned int);
-  virtual unsigned int getAlarmTime();
+ //virtual void setAlarmTime(unsigned int);
+  virtual void setAlarmTime(double);
+  //virtual unsigned int getAlarmTime();
+   virtual double getAlarmTime();
 
   virtual void setNonLinearSolverContinueOnError(bool);
   virtual bool getNonLinearSolverContinueOnError();
@@ -80,7 +82,8 @@ private:
       _runtimeLibraryPath;
   OutputPointType _outputPointType;
   LogSettings _log_settings;
-  unsigned int _alarm_time;
+  //unsigned int _alarm_time;
+  double _alarm_time;
   int _solverThreads;
   OutputFormat _outputFormat;
 };

@@ -586,7 +586,8 @@ bool Peer::stateSelection()
   return SolverDefaultImplementation::stateSelection();
 }
 
-void Peer::setTimeOut(unsigned int time_out)
+//void Peer::setTimeOut(unsigned int time_out)
+void Peer::setTimeOut(double time_out)
   {
        SimulationMonitor::setTimeOut(time_out);
   }

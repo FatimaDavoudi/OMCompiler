@@ -22,7 +22,8 @@
 #include <boost/numeric/ublas/storage.hpp>
 
 #include <boost/container/vector.hpp>
-
+#include <boost/lambda/bind.hpp>
+#include <boost/lambda/lambda.hpp>
 /*Namespaces*/
 using std::abs;
 using std::ios;
@@ -177,16 +178,17 @@ namespace ublas = boost::numeric::ublas;
   using boost::weak_ptr;
   using boost::dynamic_pointer_cast;
   using omcpp::to_string;
+  using namespace boost::lambda;
 #endif //!USE_CPP_03
 
 #if defined(USE_THREAD)
   #include <Core/Utils/extension/barriers.hpp>
 #endif //USE_THREAD
 
-//#include <boost/timer/timer.hpp>
-//using boost::timer::cpu_timer;
-//using boost::timer::cpu_times;
-//using boost::timer::nanosecond_type;
+#include <boost/timer/timer.hpp>
+using boost::timer::cpu_timer;
+using boost::timer::cpu_times;
+using boost::timer::nanosecond_type;
 typedef ublas::shallow_array_adaptor<double> adaptor_t;
 typedef ublas::vector<double, adaptor_t> shared_vector_t;
 typedef ublas::matrix<double,  ublas::column_major,adaptor_t> shared_matrix_t;
@@ -231,4 +233,5 @@ typedef ublas::matrix<double, ublas::column_major> matrix_t;
 #include <Core/Math/Utility.h>
 #include <Core/DataExchange/IPropertyReader.h>
 #include <Core/DataExchange/SimDouble.h>
+#include <Core/ReduceDAE/IReduceDAE.h>
 /** @} */ // end of group1

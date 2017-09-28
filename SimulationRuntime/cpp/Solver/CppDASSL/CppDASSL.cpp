@@ -448,7 +448,8 @@ bool CppDASSL::stateSelection()
   return SolverDefaultImplementation::stateSelection();
 }
 
-void CppDASSL::setTimeOut(unsigned int time_out)
+//void CppDASSL::setTimeOut(unsigned int time_out)
+void CppDASSL::setTimeOut(double time_out)
   {
        SimulationMonitor::setTimeOut(time_out);
   }

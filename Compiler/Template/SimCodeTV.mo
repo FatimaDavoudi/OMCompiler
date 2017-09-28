@@ -3404,6 +3404,11 @@ package Flags
   constant ConfigFlag EQUATIONS_PER_FILE;
   constant ConfigFlag GENERATE_SYMBOLIC_JACOBIAN;
   constant ConfigFlag HOMOTOPY_APPROACH;
+    constant ConfigFlag GENERATE_LABELED_SIMCODE;
+  constant ConfigFlag REDUCE_TERMS;
+  constant ConfigFlag LABELED_REDUCTION;
+  constant ConfigFlag LOAD_MSL_MODEL;
+  constant ConfigFlag Load_PACKAGE_FILE;
 
   function set
     input DebugFlag inFlag;

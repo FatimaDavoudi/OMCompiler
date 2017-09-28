@@ -71,8 +71,10 @@ public:
   virtual void setOutputPointType(OutputPointType) = 0;
   virtual LogSettings getLogSettings() = 0;
   virtual void setLogSettings(LogSettings) = 0;
-  virtual void setAlarmTime(unsigned int) = 0;
-  virtual unsigned int getAlarmTime() = 0;
+    //virtual void setAlarmTime(unsigned int) = 0;
+  virtual void setAlarmTime(double) = 0;
+  //virtual unsigned int getAlarmTime() = 0;
+  virtual double getAlarmTime() = 0;
   virtual OutputFormat getOutputFormat() = 0;
   virtual void setOutputFormat(OutputFormat) = 0;
   virtual bool useEndlessSim() = 0;

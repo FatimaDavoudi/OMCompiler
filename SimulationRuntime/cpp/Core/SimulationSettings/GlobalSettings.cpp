@@ -182,12 +182,19 @@ string GlobalSettings::getRuntimeLibrarypath()
   return _runtimeLibraryPath;
 }
 
-void GlobalSettings::setAlarmTime(unsigned int t)
+/* void GlobalSettings::setAlarmTime(unsigned int t)
+{
+  _alarm_time = t;
+} */
+void GlobalSettings::setAlarmTime(double t)
 {
   _alarm_time = t;
 }
-
-unsigned int GlobalSettings::getAlarmTime()
+/* unsigned int GlobalSettings::getAlarmTime()
+{
+  return _alarm_time;
+} */
+double GlobalSettings::getAlarmTime()
 {
   return _alarm_time;
 }

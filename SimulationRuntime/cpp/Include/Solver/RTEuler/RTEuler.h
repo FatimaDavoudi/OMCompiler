@@ -57,7 +57,8 @@ public:
     /// Indicates whether a solver error occurred during integration, returns type of error and provides error message
     virtual const int reportErrorMessage(ostream& messageStream);
   virtual bool stateSelection();
-  virtual void setTimeOut(unsigned int time_out);
+  //virtual void setTimeOut(unsigned int time_out);
+  virtual void setTimeOut(double time_out);
 
   virtual void stop();
 

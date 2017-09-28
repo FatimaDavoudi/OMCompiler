@@ -629,7 +629,8 @@ void Cvode::CVodeCore()
     }
   }
 }
-void Cvode::setTimeOut(unsigned int time_out)
+//void Cvode::setTimeOut(unsigned int time_out)
+void Cvode::setTimeOut(double time_out)
   {
        SimulationMonitor::setTimeOut(time_out);
   }

@@ -693,7 +693,8 @@ void Ida::IDACore()
     }
   }
 }
-void Ida::setTimeOut(unsigned int time_out)
+//void Ida::setTimeOut(unsigned int time_out)
+void Ida::setTimeOut(double time_out)
   {
        SimulationMonitor::setTimeOut(time_out);
   }

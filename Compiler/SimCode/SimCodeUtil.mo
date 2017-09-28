@@ -108,7 +108,7 @@ import Util;
 import ValuesUtil;
 import VisualXML;
 import ZeroCrossings;
-
+import ReduceDAE;
 protected constant String UNDERLINE = "========================================";
 
 protected function compareEqSystems
@@ -393,6 +393,31 @@ algorithm
     // create model info
     modelInfo := createModelInfo(inClassName, dlow, inInitDAE, functions, {}, numStateSets, inFileDir, listLength(clockedSysts), tempvars);
     if debug then execStat("simCode: createModelInfo and variables"); end if;
+
+    //build labels
+     if(boolAnd(ifcpp,Flags.getConfigBool(Flags.LABELED_REDUCTION))) then
+     Flags.setConfigBool(Flags.GENERATE_LABELED_SIMCODE,true);
+    end if;
+
+	if(ifcpp) then
+	if Flags.getConfigBool(Flags.GENERATE_LABELED_SIMCODE) then
+        (allEquations,modelInfo) := ReduceDAE.buildLabels(allEquations,modelInfo,{},args);
+        //Flags.set(Flags.REDUCE_DAE,true);
+		if debug then execStat("ReduceDAE: buildLabels"); end if;
+		end if;
+	end if;
+
+    tmpSimVars := modelInfo.vars;
+
+    //reduce terms
+	if(ifcpp) then
+	if Flags.getConfigBool(Flags.REDUCE_TERMS) then
+        (allEquations,modelInfo) := ReduceDAE.reduceTerms(allEquations,modelInfo,args);
+        Flags.setConfigBool(Flags.REDUCE_TERMS, false);
+        _:=Flags.disableDebug(Flags.REDUCE_DAE);
+		if debug then execStat("ReduceDAE: reduceTerms"); end if;
+		end if;
+	end if;
 
     // external objects
     extObjInfo := createExtObjInfo(shared);

@@ -181,7 +181,8 @@ void RTEuler::doRK1()
     _z[i] += _h * _f[i];
 }
 
-void RTEuler::setTimeOut(unsigned int time_out)
+//void RTEuler::setTimeOut(unsigned int time_out)
+void RTEuler::setTimeOut(double time_out)
 {}
 void RTEuler::stop()
 {}

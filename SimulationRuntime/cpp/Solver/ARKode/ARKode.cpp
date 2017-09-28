@@ -516,7 +516,8 @@ void Arkode::ArkodeCore()
 
     }
 }
-void Arkode::setTimeOut(unsigned int time_out)
+//void Arkode::setTimeOut(unsigned int time_out)
+void Arkode::setTimeOut(double time_out)
   {
        SimulationMonitor::setTimeOut(time_out);
   }

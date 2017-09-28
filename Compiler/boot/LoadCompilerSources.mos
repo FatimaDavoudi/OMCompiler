@@ -142,7 +142,7 @@ if true then /* Suppress output */
     "../SimCode/SimCodeFunction.mo",
     "../SimCode/SimCodeFunctionUtil.mo",
     "../SimCode/SimCodeVar.mo",
-
+    "../SimCode/ReduceDAE.mo",
   // "Script";
     "../Script/CevalScript.mo",
     "../Script/GlobalScript.mo",

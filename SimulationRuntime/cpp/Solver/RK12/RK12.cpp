@@ -193,7 +193,8 @@ void RK12::initialize()
 	}
 
 }
-  void RK12::setTimeOut(unsigned int time_out)
+  //void RK12::setTimeOut(unsigned int time_out)
+  void RK12::setTimeOut(double time_out)
   {
        SimulationMonitor::setTimeOut(time_out);
   }

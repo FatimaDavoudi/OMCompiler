@@ -133,7 +133,8 @@ void Euler::initialize()
 
     }
 }
-  void Euler::setTimeOut(unsigned int time_out)
+ // void Euler::setTimeOut(unsigned int time_out)
+  void Euler::setTimeOut(double time_out)
   {
        SimulationMonitor::setTimeOut(time_out);
   }

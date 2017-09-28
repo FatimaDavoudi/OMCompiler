@@ -18,13 +18,16 @@ public:
   SimulationMonitor();
   ~SimulationMonitor();
   void initialize();
-  void setTimeOut(unsigned int time_out);
+   //void setTimeOut(unsigned int time_out);
+  void setTimeOut(double time_out);
   void stop();
   void checkTimeout();
 
 protected:
-  /*nanosecond_type _time_out;*/
+  //being uncomment for labeling reduction
+  nanosecond_type _time_out;
   bool _interrupt;
-  /*cpu_timer _timer;*/
+   //being uncomment for labeling reduction
+  cpu_timer _timer;
 };
  /** @} */ // end of coreSolver
